@@ -1,0 +1,1731 @@
+{
+ "version": "2026.09.1",
+ "levels": [
+  {
+   "code": "L1",
+   "name": "Foundation 1",
+   "indicative_age": "≈ 4–5",
+   "description": "Early readiness: sounds, counting to 20, following simple instructions"
+  },
+  {
+   "code": "L2",
+   "name": "Foundation 2",
+   "indicative_age": "≈ 5–6",
+   "description": "Blending, number sense to 20, simple measurement and sorting"
+  },
+  {
+   "code": "L3",
+   "name": "Early primary 1",
+   "indicative_age": "≈ 6–7",
+   "description": "Reading simple sentences, operations within 10, tens and ones, money"
+  },
+  {
+   "code": "L4",
+   "name": "Early primary 2",
+   "indicative_age": "≈ 7–8",
+   "description": "Fluent reading, standard units, place value to 100"
+  },
+  {
+   "code": "L5",
+   "name": "Early primary 3",
+   "indicative_age": "≈ 8–10",
+   "description": "Extended writing, multi-step problems, inquiry"
+  }
+ ],
+ "subjects": [
+  {
+   "code": "ENG",
+   "name": "English Language & Literacy",
+   "display_order": 1,
+   "scope": "Phonics, reading, comprehension, writing"
+  },
+  {
+   "code": "MAT",
+   "name": "Mathematics",
+   "display_order": 2,
+   "scope": "Number, measurement, money, shape"
+  },
+  {
+   "code": "LNG",
+   "name": "Home & Regional Languages",
+   "display_order": 3,
+   "scope": "Listening, speaking, script recognition in the family's chosen language"
+  },
+  {
+   "code": "SCI",
+   "name": "Science & Nature",
+   "display_order": 4,
+   "scope": "Observation, living things, materials, inquiry"
+  },
+  {
+   "code": "SOC",
+   "name": "Social & Environmental Studies",
+   "display_order": 5,
+   "scope": "Family and community, maps, environment, culture"
+  },
+  {
+   "code": "LIF",
+   "name": "Life Skills & Independence",
+   "display_order": 6,
+   "scope": "Self-care, safety, feelings, time"
+  },
+  {
+   "code": "ART",
+   "name": "Creative Arts & Music",
+   "display_order": 7,
+   "scope": "Drawing, craft, rhythm, drama"
+  },
+  {
+   "code": "PHY",
+   "name": "Physical Development & Health",
+   "display_order": 8,
+   "scope": "Gross/fine motor, hygiene, nutrition"
+  }
+ ],
+ "interests": [
+  {
+   "code": "animals",
+   "name": "Animals"
+  },
+  {
+   "code": "space",
+   "name": "Space"
+  },
+  {
+   "code": "dinosaurs",
+   "name": "Dinosaurs"
+  },
+  {
+   "code": "vehicles",
+   "name": "Vehicles"
+  },
+  {
+   "code": "cooking",
+   "name": "Cooking"
+  },
+  {
+   "code": "music",
+   "name": "Music"
+  },
+  {
+   "code": "art",
+   "name": "Art and craft"
+  },
+  {
+   "code": "nature",
+   "name": "Nature"
+  },
+  {
+   "code": "sports",
+   "name": "Sports and movement"
+  },
+  {
+   "code": "stories",
+   "name": "Stories"
+  },
+  {
+   "code": "building",
+   "name": "Building"
+  },
+  {
+   "code": "dance",
+   "name": "Dance"
+  }
+ ],
+ "skills": [
+  {
+   "code": "ART.DRAW.FREE",
+   "subject": "ART",
+   "level": "L1",
+   "name": "Draws and colours freely",
+   "prerequisites": [],
+   "typical_evidence": [
+    "photo",
+    "observation"
+   ]
+  },
+  {
+   "code": "ART.MUS.SING",
+   "subject": "ART",
+   "level": "L1",
+   "name": "Sings simple songs",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation",
+    "audio"
+   ]
+  },
+  {
+   "code": "ART.CRAFT.BUILD",
+   "subject": "ART",
+   "level": "L2",
+   "name": "Builds a model from materials and a plan",
+   "prerequisites": [
+    "LIF.INSTR.FOLLOW2"
+   ],
+   "typical_evidence": [
+    "photo",
+    "observation"
+   ]
+  },
+  {
+   "code": "ART.MUS.RHYTHM",
+   "subject": "ART",
+   "level": "L2",
+   "name": "Keeps a steady beat",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation",
+    "audio"
+   ]
+  },
+  {
+   "code": "ART.DRAMA.ROLE",
+   "subject": "ART",
+   "level": "L3",
+   "name": "Role-plays a story",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "ENG.PHON.LETSND",
+   "subject": "ENG",
+   "level": "L1",
+   "name": "Recognises letter sounds",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "ENG.COMP.WHAT",
+   "subject": "ENG",
+   "level": "L1",
+   "name": "Answers WHAT questions about a story",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "ENG.WRIT.NAME",
+   "subject": "ENG",
+   "level": "L1",
+   "name": "Writes own name",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "ENG.PHON.CVC",
+   "subject": "ENG",
+   "level": "L2",
+   "name": "Blends CVC words (short vowels)",
+   "prerequisites": [
+    "ENG.PHON.LETSND"
+   ],
+   "typical_evidence": [
+    "activity",
+    "audio"
+   ]
+  },
+  {
+   "code": "ENG.READ.SIGHT",
+   "subject": "ENG",
+   "level": "L2",
+   "name": "Reads common sight words",
+   "prerequisites": [
+    "ENG.PHON.LETSND"
+   ],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "ENG.COMP.RETELL",
+   "subject": "ENG",
+   "level": "L3",
+   "name": "Retells a story in sequence",
+   "prerequisites": [
+    "ENG.COMP.WHAT"
+   ],
+   "typical_evidence": [
+    "activity",
+    "audio"
+   ]
+  },
+  {
+   "code": "ENG.WRIT.SENT",
+   "subject": "ENG",
+   "level": "L3",
+   "name": "Writes a simple sentence",
+   "prerequisites": [
+    "ENG.PHON.CVC"
+   ],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "LIF.INSTR.FOLLOW2",
+   "subject": "LIF",
+   "level": "L1",
+   "name": "Follows 2-step instructions",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "LIF.REQ.ASK",
+   "subject": "LIF",
+   "level": "L1",
+   "name": "Asks for what they need independently",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "LIF.SELF.DRESS",
+   "subject": "LIF",
+   "level": "L1",
+   "name": "Dresses independently",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "LIF.SELF.MEAL",
+   "subject": "LIF",
+   "level": "L2",
+   "name": "Helps prepare or serve a simple meal",
+   "prerequisites": [
+    "LIF.INSTR.FOLLOW2"
+   ],
+   "typical_evidence": [
+    "observation",
+    "photo"
+   ]
+  },
+  {
+   "code": "LIF.EMO.NAME",
+   "subject": "LIF",
+   "level": "L2",
+   "name": "Names and talks about feelings",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "LIF.SAFE.ROAD",
+   "subject": "LIF",
+   "level": "L3",
+   "name": "Explains basic road and home safety",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "LIF.TIME.CLOCK",
+   "subject": "LIF",
+   "level": "L3",
+   "name": "Tells time to the hour and half-hour",
+   "prerequisites": [
+    "MAT.NUM.COUNT20"
+   ],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "LNG.SPK.CONV",
+   "subject": "LNG",
+   "level": "L1",
+   "name": "Speaks about daily events in the home language",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation",
+    "audio"
+   ]
+  },
+  {
+   "code": "LNG.LIS.STORY",
+   "subject": "LNG",
+   "level": "L1",
+   "name": "Listens and responds to a story in the home language",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "LNG.READ.LETTERS",
+   "subject": "LNG",
+   "level": "L2",
+   "name": "Recognises letters of the chosen script",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "LNG.READ.WORDS",
+   "subject": "LNG",
+   "level": "L3",
+   "name": "Reads familiar words in the chosen script",
+   "prerequisites": [
+    "LNG.READ.LETTERS"
+   ],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "LNG.WRIT.LETTERS",
+   "subject": "LNG",
+   "level": "L3",
+   "name": "Writes letters of the chosen script",
+   "prerequisites": [
+    "LNG.READ.LETTERS"
+   ],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "LNG.SPK.SECOND",
+   "subject": "LNG",
+   "level": "L3",
+   "name": "Uses simple sentences in a second language",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation",
+    "audio"
+   ]
+  },
+  {
+   "code": "MAT.NUM.COUNT20",
+   "subject": "MAT",
+   "level": "L1",
+   "name": "Counts to 20",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "MAT.SHAPE.2D",
+   "subject": "MAT",
+   "level": "L1",
+   "name": "Names basic 2D shapes",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "MAT.NUM.COMPARE",
+   "subject": "MAT",
+   "level": "L2",
+   "name": "Compares numbers to 20",
+   "prerequisites": [
+    "MAT.NUM.COUNT20"
+   ],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "MAT.NUM.ADD10",
+   "subject": "MAT",
+   "level": "L2",
+   "name": "Adds within 10",
+   "prerequisites": [
+    "MAT.NUM.COUNT20"
+   ],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "MAT.MEAS.COMPARE",
+   "subject": "MAT",
+   "level": "L2",
+   "name": "Compares length, weight and capacity",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "MAT.NUM.SUB10",
+   "subject": "MAT",
+   "level": "L3",
+   "name": "Subtracts within 10",
+   "prerequisites": [
+    "MAT.NUM.ADD10"
+   ],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "MAT.NUM.PLACE100",
+   "subject": "MAT",
+   "level": "L3",
+   "name": "Understands tens and ones to 100",
+   "prerequisites": [
+    "MAT.NUM.COMPARE"
+   ],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "MAT.MONEY.COINS",
+   "subject": "MAT",
+   "level": "L3",
+   "name": "Recognises coins and notes (₹)",
+   "prerequisites": [
+    "MAT.NUM.COMPARE"
+   ],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "MAT.MEAS.UNITS",
+   "subject": "MAT",
+   "level": "L4",
+   "name": "Measures with standard units",
+   "prerequisites": [
+    "MAT.MEAS.COMPARE"
+   ],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "PHY.GROSS.BALL",
+   "subject": "PHY",
+   "level": "L1",
+   "name": "Throws and catches a ball",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "PHY.FINE.SCISSORS",
+   "subject": "PHY",
+   "level": "L1",
+   "name": "Uses scissors safely",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "PHY.FINE.GRIP",
+   "subject": "PHY",
+   "level": "L1",
+   "name": "Holds a pencil with a functional grip",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "PHY.HEALTH.HAND",
+   "subject": "PHY",
+   "level": "L1",
+   "name": "Follows handwashing steps",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "PHY.GROSS.BALANCE",
+   "subject": "PHY",
+   "level": "L2",
+   "name": "Balances on one foot and walks a line",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "PHY.HEALTH.FOOD",
+   "subject": "PHY",
+   "level": "L3",
+   "name": "Sorts foods into healthy choices",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "SCI.OBS.SENSES",
+   "subject": "SCI",
+   "level": "L1",
+   "name": "Uses the five senses to describe objects",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "SCI.LIV.ANIMALS",
+   "subject": "SCI",
+   "level": "L1",
+   "name": "Groups animals by simple features",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "SCI.LIV.PLANTS",
+   "subject": "SCI",
+   "level": "L2",
+   "name": "Identifies parts of a plant",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "photo"
+   ]
+  },
+  {
+   "code": "SCI.ENV.WEATHER",
+   "subject": "SCI",
+   "level": "L2",
+   "name": "Observes and records weather",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "SCI.MAT.STATES",
+   "subject": "SCI",
+   "level": "L3",
+   "name": "Sorts solids, liquids and gases",
+   "prerequisites": [
+    "SCI.OBS.SENSES"
+   ],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "SCI.INQ.QUESTION",
+   "subject": "SCI",
+   "level": "L3",
+   "name": "Asks a question that can be tested",
+   "prerequisites": [
+    "SCI.OBS.SENSES"
+   ],
+   "typical_evidence": [
+    "observation"
+   ]
+  },
+  {
+   "code": "SOC.FAM.ROLES",
+   "subject": "SOC",
+   "level": "L1",
+   "name": "Describes family and community helpers",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "observation"
+   ]
+  },
+  {
+   "code": "SOC.ENV.WASTE",
+   "subject": "SOC",
+   "level": "L2",
+   "name": "Sorts waste and explains reuse",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity",
+    "photo"
+   ]
+  },
+  {
+   "code": "SOC.CUL.FEST",
+   "subject": "SOC",
+   "level": "L2",
+   "name": "Talks about festivals and traditions",
+   "prerequisites": [],
+   "typical_evidence": [
+    "observation",
+    "audio"
+   ]
+  },
+  {
+   "code": "SOC.TIME.SEQ",
+   "subject": "SOC",
+   "level": "L2",
+   "name": "Sequences daily and weekly events",
+   "prerequisites": [],
+   "typical_evidence": [
+    "activity"
+   ]
+  },
+  {
+   "code": "SOC.MAP.LOCAL",
+   "subject": "SOC",
+   "level": "L3",
+   "name": "Reads a simple map of home and neighbourhood",
+   "prerequisites": [
+    "SOC.FAM.ROLES"
+   ],
+   "typical_evidence": [
+    "activity"
+   ]
+  }
+ ],
+ "activities": [
+  {
+   "slug": "build-a-paper-rocket",
+   "title": "Build a paper rocket",
+   "subject": "ART",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 30,
+   "materials": [
+    "paper",
+    "tape"
+   ],
+   "skills": [
+    "ART.CRAFT.BUILD",
+    "LIF.INSTR.FOLLOW2"
+   ],
+   "interests": [
+    "space",
+    "building"
+   ],
+   "summary": "Follow a plan to fold and tape a rocket.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "instruction",
+     "text": "Roll the paper into a tube and tape it. Then fold a paper cone for the top and tape it on."
+    },
+    {
+     "id": "s2",
+     "type": "parent_checklist",
+     "skill_code": "ART.CRAFT.BUILD",
+     "prompt": "Did your child build the rocket by following the plan?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    },
+    {
+     "id": "s3",
+     "type": "parent_checklist",
+     "skill_code": "LIF.INSTR.FOLLOW2",
+     "prompt": "Did your child follow the two-step instructions?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    },
+    {
+     "id": "s4",
+     "type": "photo_evidence",
+     "prompt": "Take a photo of the rocket (optional).",
+     "optional": true,
+     "consent_required": true
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "rhythm-clap-along",
+   "title": "Rhythm clap-along",
+   "subject": "ART",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 10,
+   "materials": [],
+   "skills": [
+    "ART.MUS.RHYTHM"
+   ],
+   "interests": [
+    "music",
+    "dance"
+   ],
+   "summary": "Clap a steady beat along with a song.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "audio_record",
+     "prompt": "Clap along to a song and record it.",
+     "max_seconds": 45,
+     "consent_required": true
+    },
+    {
+     "id": "s2",
+     "type": "parent_checklist",
+     "skill_code": "ART.MUS.RHYTHM",
+     "prompt": "Did your child keep a steady beat?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "phonics-short-vowels",
+   "title": "Phonics: short vowels",
+   "subject": "ENG",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 15,
+   "materials": [
+    "picture cards"
+   ],
+   "skills": [
+    "ENG.PHON.CVC"
+   ],
+   "interests": [
+    "stories"
+   ],
+   "summary": "Blend short-vowel words and match them to pictures.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "media_prompt",
+     "caption": "Say each sound slowly, then blend: c - a - t.",
+     "alt_text": "A cat sitting on a mat"
+    },
+    {
+     "id": "s2",
+     "type": "match_pairs",
+     "prompt": "Match each word to its picture.",
+     "left": [
+      {
+       "id": "l1",
+       "label": "cat"
+      },
+      {
+       "id": "l2",
+       "label": "dog"
+      },
+      {
+       "id": "l3",
+       "label": "pig"
+      }
+     ],
+     "right": [
+      {
+       "id": "r1",
+       "label": "🐱"
+      },
+      {
+       "id": "r2",
+       "label": "🐶"
+      },
+      {
+       "id": "r3",
+       "label": "🐷"
+      }
+     ],
+     "pairs": [
+      [
+       "l1",
+       "r1"
+      ],
+      [
+       "l2",
+       "r2"
+      ],
+      [
+       "l3",
+       "r3"
+      ]
+     ]
+    },
+    {
+     "id": "s3",
+     "type": "audio_record",
+     "prompt": "Read these words aloud: cat, sit, hop.",
+     "max_seconds": 30,
+     "consent_required": true
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "story-retell-in-3-pictures",
+   "title": "Story retell in 3 pictures",
+   "subject": "ENG",
+   "level_from": "L3",
+   "level_to": "L3",
+   "duration_min": 15,
+   "materials": [
+    "picture book"
+   ],
+   "skills": [
+    "ENG.COMP.RETELL",
+    "ENG.COMP.WHAT"
+   ],
+   "interests": [
+    "stories"
+   ],
+   "summary": "Put the story pictures in order and tell the story.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "instruction",
+     "text": "Read a short picture book together. Pick three pictures from it."
+    },
+    {
+     "id": "s2",
+     "type": "sequence_order",
+     "prompt": "Put the story in order.",
+     "items": [
+      {
+       "id": "i1",
+       "label": "A boy plants a seed"
+      },
+      {
+       "id": "i2",
+       "label": "The seed grows into a plant"
+      },
+      {
+       "id": "i3",
+       "label": "The boy picks a flower"
+      }
+     ],
+     "correct_order": [
+      "i1",
+      "i2",
+      "i3"
+     ]
+    },
+    {
+     "id": "s3",
+     "type": "single_choice",
+     "prompt": "What did the boy plant?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "A seed"
+      },
+      {
+       "id": "o2",
+       "label": "A shoe"
+      },
+      {
+       "id": "o3",
+       "label": "A ball"
+      }
+     ],
+     "correct": [
+      "o1"
+     ]
+    },
+    {
+     "id": "s4",
+     "type": "audio_record",
+     "prompt": "Tell the story in your own words.",
+     "max_seconds": 60,
+     "consent_required": true
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "feelings-faces",
+   "title": "Feelings faces",
+   "subject": "LIF",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 10,
+   "materials": [],
+   "skills": [
+    "LIF.EMO.NAME"
+   ],
+   "interests": [
+    "stories"
+   ],
+   "summary": "Name feelings from faces and talk about them.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "media_prompt",
+     "caption": "Look at the faces. How do they feel?",
+     "alt_text": "Three faces: happy, sad and angry"
+    },
+    {
+     "id": "s2",
+     "type": "single_choice",
+     "prompt": "Which face is happy?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "😊"
+      },
+      {
+       "id": "o2",
+       "label": "😢"
+      },
+      {
+       "id": "o3",
+       "label": "😠"
+      }
+     ],
+     "correct": [
+      "o1"
+     ]
+    },
+    {
+     "id": "s3",
+     "type": "single_choice",
+     "prompt": "Which face is sad?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "😊"
+      },
+      {
+       "id": "o2",
+       "label": "😢"
+      },
+      {
+       "id": "o3",
+       "label": "😠"
+      }
+     ],
+     "correct": [
+      "o2"
+     ]
+    },
+    {
+     "id": "s4",
+     "type": "reflection",
+     "prompt": "How do you feel right now?",
+     "emoji_options": [
+      "😊",
+      "😢",
+      "😠",
+      "😴"
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "set-the-table",
+   "title": "Set the table",
+   "subject": "LIF",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 15,
+   "materials": [
+    "plates",
+    "cups"
+   ],
+   "skills": [
+    "LIF.SELF.MEAL",
+    "LIF.INSTR.FOLLOW2"
+   ],
+   "interests": [
+    "cooking"
+   ],
+   "summary": "Help set the table for a family meal.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "instruction",
+     "text": "Put one plate and one cup at each place. Then put a spoon next to each plate."
+    },
+    {
+     "id": "s2",
+     "type": "parent_checklist",
+     "skill_code": "LIF.SELF.MEAL",
+     "prompt": "Did your child help serve or set up the meal?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    },
+    {
+     "id": "s3",
+     "type": "parent_checklist",
+     "skill_code": "LIF.INSTR.FOLLOW2",
+     "prompt": "Did your child follow the two steps?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "count-the-dogs",
+   "title": "Count the dogs",
+   "subject": "MAT",
+   "level_from": "L1",
+   "level_to": "L1",
+   "duration_min": 10,
+   "materials": [],
+   "skills": [
+    "MAT.NUM.COUNT20"
+   ],
+   "interests": [
+    "animals"
+   ],
+   "summary": "Count groups of dogs, from 3 up to 15.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "media_prompt",
+     "caption": "Let us count some dogs together. Point to each dog as you count.",
+     "alt_text": "A park with many dogs playing"
+    },
+    {
+     "id": "s2",
+     "type": "single_choice",
+     "prompt": "Count: 🐕🐕🐕. How many dogs?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "2"
+      },
+      {
+       "id": "o2",
+       "label": "3"
+      },
+      {
+       "id": "o3",
+       "label": "4"
+      }
+     ],
+     "correct": [
+      "o2"
+     ],
+     "hint": "Touch each dog once."
+    },
+    {
+     "id": "s3",
+     "type": "single_choice",
+     "prompt": "Count: 🐕🐕🐕🐕🐕. How many dogs?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "4"
+      },
+      {
+       "id": "o2",
+       "label": "5"
+      },
+      {
+       "id": "o3",
+       "label": "6"
+      }
+     ],
+     "correct": [
+      "o2"
+     ]
+    },
+    {
+     "id": "s4",
+     "type": "single_choice",
+     "prompt": "Count: 🐕🐕🐕🐕🐕🐕🐕🐕. How many dogs?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "7"
+      },
+      {
+       "id": "o2",
+       "label": "8"
+      },
+      {
+       "id": "o3",
+       "label": "9"
+      }
+     ],
+     "correct": [
+      "o2"
+     ]
+    },
+    {
+     "id": "s5",
+     "type": "single_choice",
+     "prompt": "Count: 🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕. How many dogs?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "11"
+      },
+      {
+       "id": "o2",
+       "label": "12"
+      },
+      {
+       "id": "o3",
+       "label": "13"
+      }
+     ],
+     "correct": [
+      "o2"
+     ]
+    },
+    {
+     "id": "s6",
+     "type": "single_choice",
+     "prompt": "Count: 🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕. How many dogs?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "14"
+      },
+      {
+       "id": "o2",
+       "label": "15"
+      },
+      {
+       "id": "o3",
+       "label": "16"
+      }
+     ],
+     "correct": [
+      "o2"
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "kitchen-counting",
+   "title": "Kitchen counting",
+   "subject": "MAT",
+   "level_from": "L1",
+   "level_to": "L2",
+   "duration_min": 15,
+   "materials": [
+    "spoons",
+    "cups"
+   ],
+   "skills": [
+    "MAT.NUM.COUNT20",
+    "LIF.INSTR.FOLLOW2"
+   ],
+   "interests": [
+    "cooking"
+   ],
+   "summary": "Follow two steps in the kitchen and count what you find.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "instruction",
+     "text": "First, bring 5 spoons to the table. Then bring 3 cups."
+    },
+    {
+     "id": "s2",
+     "type": "single_choice",
+     "prompt": "How many spoons and cups are on the table altogether?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "7"
+      },
+      {
+       "id": "o2",
+       "label": "8"
+      },
+      {
+       "id": "o3",
+       "label": "9"
+      }
+     ],
+     "correct": [
+      "o2"
+     ],
+     "hint": "Count the spoons first, then keep counting the cups."
+    },
+    {
+     "id": "s3",
+     "type": "parent_checklist",
+     "skill_code": "LIF.INSTR.FOLLOW2",
+     "prompt": "Did your child follow both steps in order?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    },
+    {
+     "id": "s4",
+     "type": "photo_evidence",
+     "prompt": "Take a photo of the table (optional).",
+     "optional": true,
+     "consent_required": true
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "money-sorting",
+   "title": "Money sorting",
+   "subject": "MAT",
+   "level_from": "L3",
+   "level_to": "L3",
+   "duration_min": 15,
+   "materials": [
+    "coins"
+   ],
+   "skills": [
+    "MAT.MONEY.COINS"
+   ],
+   "interests": [],
+   "summary": "Match coins to their values and sort real coins.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "match_pairs",
+     "prompt": "Match the coin to its value.",
+     "left": [
+      {
+       "id": "l1",
+       "label": "₹1"
+      },
+      {
+       "id": "l2",
+       "label": "₹2"
+      },
+      {
+       "id": "l3",
+       "label": "₹5"
+      },
+      {
+       "id": "l4",
+       "label": "₹10"
+      }
+     ],
+     "right": [
+      {
+       "id": "r1",
+       "label": "one rupee"
+      },
+      {
+       "id": "r2",
+       "label": "two rupees"
+      },
+      {
+       "id": "r3",
+       "label": "five rupees"
+      },
+      {
+       "id": "r4",
+       "label": "ten rupees"
+      }
+     ],
+     "pairs": [
+      [
+       "l1",
+       "r1"
+      ],
+      [
+       "l2",
+       "r2"
+      ],
+      [
+       "l3",
+       "r3"
+      ],
+      [
+       "l4",
+       "r4"
+      ]
+     ]
+    },
+    {
+     "id": "s2",
+     "type": "parent_checklist",
+     "skill_code": "MAT.MONEY.COINS",
+     "prompt": "Ask your child to sort real coins by value. How did they do?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "outdoor-measurement",
+   "title": "Outdoor measurement with hands and feet",
+   "subject": "MAT",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 20,
+   "materials": [
+    "outdoor space"
+   ],
+   "skills": [
+    "MAT.MEAS.COMPARE"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "summary": "Measure things with hand spans and footsteps and compare.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "timer_task",
+     "prompt": "Measure three things outside with your hand span.",
+     "duration_sec": 600,
+     "checklist": [
+      "A bench",
+      "A door",
+      "A tree trunk"
+     ]
+    },
+    {
+     "id": "s2",
+     "type": "numeric_input",
+     "prompt": "The bench is 3 hand spans and the door is 2 hand spans. How many altogether?",
+     "answer": 5,
+     "tolerance": 0
+    },
+    {
+     "id": "s3",
+     "type": "photo_evidence",
+     "prompt": "Take a photo of your measuring (optional).",
+     "optional": true,
+     "consent_required": true
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "balloon-catch",
+   "title": "Balloon catch",
+   "subject": "PHY",
+   "level_from": "L1",
+   "level_to": "L1",
+   "duration_min": 10,
+   "materials": [
+    "a balloon"
+   ],
+   "skills": [
+    "PHY.GROSS.BALL"
+   ],
+   "interests": [
+    "sports"
+   ],
+   "summary": "Toss and catch a balloon.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "timer_task",
+     "prompt": "Toss the balloon up and catch it. Try 10 times.",
+     "duration_sec": 300,
+     "checklist": [
+      "Tossed 10 times"
+     ]
+    },
+    {
+     "id": "s2",
+     "type": "parent_checklist",
+     "skill_code": "PHY.GROSS.BALL",
+     "prompt": "How well did your child catch?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "five-senses-walk",
+   "title": "Five senses walk",
+   "subject": "SCI",
+   "level_from": "L1",
+   "level_to": "L1",
+   "duration_min": 20,
+   "materials": [
+    "outdoor space"
+   ],
+   "skills": [
+    "SCI.OBS.SENSES"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "summary": "Walk outside and describe what you see, hear, smell and feel.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "timer_task",
+     "prompt": "Go for a walk. Find one thing for each sense.",
+     "duration_sec": 900,
+     "checklist": [
+      "Something I can see",
+      "Something I can hear",
+      "Something I can smell",
+      "Something I can touch"
+     ]
+    },
+    {
+     "id": "s2",
+     "type": "reflection",
+     "prompt": "How did the walk feel?",
+     "emoji_options": [
+      "😀",
+      "🙂",
+      "😐"
+     ]
+    },
+    {
+     "id": "s3",
+     "type": "parent_checklist",
+     "skill_code": "SCI.OBS.SENSES",
+     "prompt": "Could your child describe things using the senses?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "plant-parts-puzzle",
+   "title": "Plant parts puzzle",
+   "subject": "SCI",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 15,
+   "materials": [
+    "a leaf",
+    "a flower"
+   ],
+   "skills": [
+    "SCI.LIV.PLANTS"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "summary": "Match each plant part to its job.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "match_pairs",
+     "prompt": "Match each plant part to what it does.",
+     "left": [
+      {
+       "id": "l1",
+       "label": "Root"
+      },
+      {
+       "id": "l2",
+       "label": "Stem"
+      },
+      {
+       "id": "l3",
+       "label": "Leaf"
+      },
+      {
+       "id": "l4",
+       "label": "Flower"
+      }
+     ],
+     "right": [
+      {
+       "id": "r1",
+       "label": "Holds the plant in the soil"
+      },
+      {
+       "id": "r2",
+       "label": "Carries water up"
+      },
+      {
+       "id": "r3",
+       "label": "Makes food from sunlight"
+      },
+      {
+       "id": "r4",
+       "label": "Makes seeds"
+      }
+     ],
+     "pairs": [
+      [
+       "l1",
+       "r1"
+      ],
+      [
+       "l2",
+       "r2"
+      ],
+      [
+       "l3",
+       "r3"
+      ],
+      [
+       "l4",
+       "r4"
+      ]
+     ]
+    }
+   ],
+   "recurring": false
+  },
+  {
+   "slug": "weather-diary",
+   "title": "Weather diary (7 days)",
+   "subject": "SCI",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 5,
+   "materials": [],
+   "skills": [
+    "SCI.ENV.WEATHER",
+    "SOC.TIME.SEQ"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "summary": "Look outside each day and record the weather.",
+   "recurring": true,
+   "steps": [
+    {
+     "id": "s1",
+     "type": "single_choice",
+     "prompt": "What is the weather today?",
+     "options": [
+      {
+       "id": "o1",
+       "label": "Sunny"
+      },
+      {
+       "id": "o2",
+       "label": "Cloudy"
+      },
+      {
+       "id": "o3",
+       "label": "Rainy"
+      },
+      {
+       "id": "o4",
+       "label": "Windy"
+      }
+     ],
+     "correct": [
+      "o1"
+     ],
+     "scored": false
+    },
+    {
+     "id": "s2",
+     "type": "short_text",
+     "prompt": "Write or say one word about the sky.",
+     "accepted": [],
+     "max_len": 40,
+     "scored": false
+    },
+    {
+     "id": "s3",
+     "type": "parent_checklist",
+     "skill_code": "SCI.ENV.WEATHER",
+     "prompt": "Did your child observe and record the weather?",
+     "rating_options": [
+      "trying",
+      "with_help",
+      "independent"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "sort-the-waste",
+   "title": "Sort the waste",
+   "subject": "SOC",
+   "level_from": "L2",
+   "level_to": "L2",
+   "duration_min": 15,
+   "materials": [
+    "household waste"
+   ],
+   "skills": [
+    "SOC.ENV.WASTE"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "summary": "Sort household waste and learn how to reuse.",
+   "steps": [
+    {
+     "id": "s1",
+     "type": "sequence_order",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "id": "i1",
+       "label": "Collect the waste"
+      },
+      {
+       "id": "i2",
+       "label": "Separate wet and dry waste"
+      },
+      {
+       "id": "i3",
+       "label": "Put each into the right bin"
+      }
+     ],
+     "correct_order": [
+      "i1",
+      "i2",
+      "i3"
+     ]
+    },
+    {
+     "id": "s2",
+     "type": "photo_evidence",
+     "prompt": "Take a photo of the sorted waste (optional).",
+     "optional": true,
+     "consent_required": true
+    }
+   ],
+   "recurring": false
+  }
+ ]
+}

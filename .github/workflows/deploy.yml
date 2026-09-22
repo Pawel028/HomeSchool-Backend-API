@@ -1,0 +1,237 @@
+# Builds the API image, runs the release job (migrations + least-privilege DB role + optional seed) against it, and
+# only THEN rolls it out to the live API. If the release job fails, the live API is never touched.
+#
+#   * push to main         -> deploys `nonprod`.
+#   * workflow_dispatch     -> deploys the chosen `environment` (dev | nonprod | prod), optionally redeploying an
+#                              `image_tag` that is already in the registry instead of building a new one (useful to
+#                              retry a failed rollout or promote an image another environment already validated).
+#
+# AUTHENTICATION: GitHub OIDC -> the environment's "deploy" service principal (created by the infra repo's
+# scripts/setup-github-oidc.ps1). No secret is stored anywhere; azure/login gets a short-lived token.
+#
+# APPROVALS: this job runs in the GitHub environment named after the target (`environment:` below). Configure
+# "Required reviewers" on the `nonprod` and `prod` GitHub environments (Settings > Environments) so a human must
+# approve before the job starts - the Azure federated credential is bound to the environment, so an unapproved run
+# cannot even obtain an Azure token. Restrict `prod`'s deployment branch to `main` as well.
+#
+# REQUIRED GITHUB ENVIRONMENT VARIABLES (Settings > Environments > <env> > Environment variables), one full set per
+# environment - printed by the infra repo's scripts/setup-github-oidc.ps1 and by `terraform output
+# github_environment_variables`:
+#   AZURE_TENANT_ID, AZURE_SUBSCRIPTION_ID, AZURE_CLIENT_ID   (OIDC federation)
+#   ACR_NAME, CONTAINER_APP_NAME, RELEASE_JOB_NAME, AZURE_RESOURCE_GROUP
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment to deploy
+        type: choice
+        options: [dev, nonprod, prod]
+        default: dev
+        required: true
+      image_tag:
+        description: >-
+          Existing image tag already in ACR to deploy (skips the build step, e.g. to retry or promote a build).
+          Leave empty to build a new image from this ref, tagged with its commit SHA.
+        type: string
+        required: false
+
+permissions: {}
+
+concurrency:
+  # One deployment at a time per environment; never cancel one half-way (it could leave the release job running
+  # against a database while a second run starts touching the same API).
+  group: deploy-${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'nonprod' }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy (${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'nonprod' }})
+    runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'nonprod' }}
+    permissions:
+      contents: read
+      id-token: write # OIDC token request (azure/login)
+    env:
+      ACR_NAME: ${{ vars.ACR_NAME }}
+      CONTAINER_APP_NAME: ${{ vars.CONTAINER_APP_NAME }}
+      RELEASE_JOB_NAME: ${{ vars.RELEASE_JOB_NAME }}
+      AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+      IMAGE_REPOSITORY: homeschool-api
+      RELEASE_JOB_TIMEOUT_MINUTES: "20"
+      RELEASE_JOB_POLL_SECONDS: "10"
+      READYZ_TIMEOUT_MINUTES: "5"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Check required environment variables are set
+        run: |
+          set -euo pipefail
+          missing=()
+          for v in ACR_NAME CONTAINER_APP_NAME RELEASE_JOB_NAME AZURE_RESOURCE_GROUP; do
+            [ -n "${!v:-}" ] || missing+=("$v")
+          done
+          if [ "${#missing[@]}" -gt 0 ]; then
+            echo "Missing GitHub environment variable(s) on environment '${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'nonprod' }}': ${missing[*]}" >&2
+            echo "Set them from the infra repository's 'terraform output github_environment_variables' (see infra/README.md)." >&2
+            exit 1
+          fi
+
+      - name: Determine image tag
+        id: image
+        run: |
+          set -euo pipefail
+          if [ -n "${{ inputs.image_tag }}" ]; then
+            tag="${{ inputs.image_tag }}"
+            echo "Using existing image tag: ${tag}"
+          else
+            tag="${GITHUB_SHA::7}"
+            echo "Building new image tag from commit SHA: ${tag}"
+          fi
+          image="${ACR_NAME}.azurecr.io/${IMAGE_REPOSITORY}:${tag}"
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          echo "image=${image}" >> "$GITHUB_OUTPUT"
+
+      # Never tags/deploys `latest`: every deployed image is pinned to the exact commit (or an explicit prior tag),
+      # so `terraform plan` never sees the running image change and rollback always means "deploy this known tag".
+      - name: Build and push image (az acr build)
+        if: inputs.image_tag == ''
+        run: |
+          set -euo pipefail
+          az acr build \
+            --registry "${ACR_NAME}" \
+            --image "${IMAGE_REPOSITORY}:${{ steps.image.outputs.tag }}" \
+            --file Dockerfile \
+            .
+
+      - name: Verify the requested existing tag exists in ACR
+        if: inputs.image_tag != ''
+        run: |
+          set -euo pipefail
+          az acr repository show --name "${ACR_NAME}" --image "${IMAGE_REPOSITORY}:${{ steps.image.outputs.tag }}" --output none
+
+      # The release job runs `python -m app.cli release` (migrations, then create/refresh the least-privilege DB
+      # role, then seed if configured) with the NEW image, BEFORE the live API is touched. A failure here stops the
+      # workflow: the API keeps serving the previous image and revision.
+      - name: Point the release job at the new image
+        run: |
+          set -euo pipefail
+          az containerapp job update \
+            --name "${RELEASE_JOB_NAME}" \
+            --resource-group "${AZURE_RESOURCE_GROUP}" \
+            --image "${{ steps.image.outputs.image }}" \
+            --output none
+
+      - name: Run the release job and wait for it to succeed
+        id: release_job
+        run: |
+          set -euo pipefail
+          execution="$(az containerapp job start \
+            --name "${RELEASE_JOB_NAME}" \
+            --resource-group "${AZURE_RESOURCE_GROUP}" \
+            --query name -o tsv)"
+          if [ -z "${execution}" ]; then
+            echo "az containerapp job start did not return an execution name" >&2
+            exit 1
+          fi
+          echo "Execution: ${execution}"
+          echo "execution=${execution}" >> "$GITHUB_OUTPUT"
+
+          deadline=$(( $(date +%s) + RELEASE_JOB_TIMEOUT_MINUTES * 60 ))
+          status=""
+          last=""
+          while [ "$(date +%s)" -lt "${deadline}" ]; do
+            status="$(az containerapp job execution show \
+              --name "${RELEASE_JOB_NAME}" \
+              --resource-group "${AZURE_RESOURCE_GROUP}" \
+              --job-execution-name "${execution}" \
+              --query properties.status -o tsv || true)"
+            if [ "${status}" != "${last}" ]; then
+              echo "$(date -u '+%H:%M:%S')  ${status}"
+              last="${status}"
+            fi
+            case "${status}" in
+              Succeeded|Failed|Stopped|Degraded) break ;;
+            esac
+            sleep "${RELEASE_JOB_POLL_SECONDS}"
+          done
+
+          if [ "${status}" = "Succeeded" ]; then
+            echo "Release job succeeded."
+            exit 0
+          fi
+
+          if [ -n "${status}" ]; then
+            echo "Release job ended with status ${status}. Recent log lines:" >&2
+          else
+            echo "Timed out after ${RELEASE_JOB_TIMEOUT_MINUTES} minutes (last status: ${last}). Recent log lines:" >&2
+          fi
+          az containerapp job logs show \
+            --name "${RELEASE_JOB_NAME}" \
+            --resource-group "${AZURE_RESOURCE_GROUP}" \
+            --execution "${execution}" \
+            --container release \
+            --format text \
+            --tail 200 || echo "(no log lines yet - Log Analytics ingestion is delayed by a few minutes)"
+          echo "Release job did not succeed; the live API was NOT updated." >&2
+          exit 1
+
+      # Only reached if the release job above succeeded. `az containerapp update --image` creates a new revision;
+      # Terraform's `lifecycle.ignore_changes` on the image means this is never reported as drift.
+      - name: Deploy the new image to the API
+        run: |
+          set -euo pipefail
+          az containerapp update \
+            --name "${CONTAINER_APP_NAME}" \
+            --resource-group "${AZURE_RESOURCE_GROUP}" \
+            --image "${{ steps.image.outputs.image }}" \
+            --output none
+
+      - name: Wait for /readyz
+        id: readyz
+        run: |
+          set -euo pipefail
+          fqdn="$(az containerapp show \
+            --name "${CONTAINER_APP_NAME}" \
+            --resource-group "${AZURE_RESOURCE_GROUP}" \
+            --query properties.configuration.ingress.fqdn -o tsv)"
+          if [ -z "${fqdn}" ]; then
+            echo "Could not read the Container App's FQDN" >&2
+            exit 1
+          fi
+          url="https://${fqdn}"
+          echo "url=${url}" >> "$GITHUB_OUTPUT"
+
+          deadline=$(( $(date +%s) + READYZ_TIMEOUT_MINUTES * 60 ))
+          until curl --fail --silent --show-error --max-time 5 "${url}/readyz" > /dev/null; do
+            if [ "$(date +%s)" -ge "${deadline}" ]; then
+              echo "${url}/readyz did not become healthy within ${READYZ_TIMEOUT_MINUTES} minutes" >&2
+              exit 1
+            fi
+            sleep 5
+          done
+          echo "${url}/readyz is healthy."
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Deploy (${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'nonprod' }})"
+            echo "* Image: \`${{ steps.image.outputs.image }}\`"
+            echo "* Release job execution: \`${{ steps.release_job.outputs.execution }}\`"
+            if [ -n "${{ steps.readyz.outputs.url }}" ]; then
+              echo "* API: ${{ steps.readyz.outputs.url }}"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

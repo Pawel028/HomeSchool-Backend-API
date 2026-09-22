@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "source": "24_PROGRESS_RULES streak examples",
+  "notes": "Each day: 'done' = completed at least one activity, 'planned' = had plan items but none completed, 'rest' = nothing planned. The last entry is the day being evaluated.",
+  "scenarios": [
+    {
+      "name": "Rest day (no plan)",
+      "days": [
+        "done",
+        "done",
+        "done",
+        "rest",
+        "done"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "One missed planned day",
+      "days": [
+        "done",
+        "planned",
+        "done"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "Two consecutive misses",
+      "days": [
+        "done",
+        "planned",
+        "planned",
+        "done"
+      ],
+      "expected": 1
+    }
+  ]
+}

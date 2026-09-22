@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# local-only, never committed
+.env.local
+.devdb/
+
+# a developer's own venv
+.venv/
+venv/

@@ -1,0 +1,17 @@
+[project]
+name = "homeschool-backend"
+version = "0.1.0"
+description = "HomeSchooling API (FastAPI modular monolith)"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["B008", "E501", "B905"]  # B008: FastAPI Depends() defaults are idiomatic; E501: the formatter owns line length

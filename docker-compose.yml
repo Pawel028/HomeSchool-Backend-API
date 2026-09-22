@@ -1,0 +1,47 @@
+# Local development stack: PostgreSQL 16, a one-shot release job (migrations + least-privilege role + seed) and the API.
+# Values below are for this local stack only.
+name: homeschool-local
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: homeschool_admin
+      POSTGRES_PASSWORD: ${DB_ADMIN_PASSWORD:-local-dev-only-admin-password}
+      POSTGRES_DB: homeschool
+    ports: ["5432:5432"]
+    volumes: ["dbdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U homeschool_admin -d homeschool"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  release:
+    build: .
+    command: ["python", "-m", "app.cli", "release"]
+    environment: &common
+      APP_ENV: dev
+      DB_HOST: db
+      DB_USER: homeschool_admin
+      DB_PASSWORD: ${DB_ADMIN_PASSWORD:-local-dev-only-admin-password}
+      JWT_SECRET: ${JWT_SECRET:-local-dev-only-jwt-secret-not-for-deployment}
+      APP_DB_USER: homeschool_app
+      APP_DB_PASSWORD: ${DB_PASSWORD:-local-dev-only-app-password}
+      SEED_BUNDLE_PATH: seed/launch-bundle.json
+      SEED_PUBLISH: "true"
+    depends_on:
+      db: {condition: service_healthy}
+
+  api:
+    build: .
+    environment:
+      <<: *common
+      DB_USER: homeschool_app
+      DB_PASSWORD: ${DB_PASSWORD:-local-dev-only-app-password}
+      SEED_ON_STARTUP: "false"
+    ports: ["8000:8000"]
+    depends_on:
+      release: {condition: service_completed_successfully}
+
+volumes:
+  dbdata:

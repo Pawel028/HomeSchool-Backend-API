@@ -1,0 +1,311 @@
+{
+  "version": "1.0",
+  "source": "25_PROGRESS_TESTS in the engineering blueprint",
+  "parameters": "24_PROGRESS_RULES",
+  "scenarios": [
+    {
+      "name": "A: counting to 20",
+      "evidence": [
+        {
+          "n": 1,
+          "source": "activity",
+          "value": 0.0,
+          "independence": "independent",
+          "day": 1,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 1.0,
+            "score": 0.0,
+            "confidence": 0.2,
+            "distinct_days": 1,
+            "status": "emerging"
+          }
+        },
+        {
+          "n": 2,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "prompted",
+          "day": 1,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 0.7,
+            "weight": 0.7,
+            "alpha": 0.35,
+            "score": 0.35,
+            "confidence": 0.4,
+            "distinct_days": 1,
+            "status": "emerging"
+          }
+        },
+        {
+          "n": 3,
+          "source": "observation",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 2,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.333333333333,
+            "score": 0.566666666667,
+            "confidence": 0.6,
+            "distinct_days": 2,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 4,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 3,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.25,
+            "score": 0.675,
+            "confidence": 0.8,
+            "distinct_days": 3,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 5,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 4,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.2,
+            "score": 0.74,
+            "confidence": 1.0,
+            "distinct_days": 4,
+            "status": "secure"
+          }
+        },
+        {
+          "n": 6,
+          "source": "activity",
+          "value": 0.0,
+          "independence": "independent",
+          "day": 5,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.2,
+            "score": 0.592,
+            "confidence": 1.0,
+            "distinct_days": 5,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 7,
+          "source": "assessment",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 6,
+          "expected": {
+            "base_weight": 1.5,
+            "factor": 1.0,
+            "weight": 1.5,
+            "alpha": 0.3,
+            "score": 0.7144,
+            "confidence": 1.0,
+            "distinct_days": 6,
+            "status": "secure"
+          }
+        },
+        {
+          "n": 8,
+          "source": "observation",
+          "value": 1.0,
+          "independence": "assisted",
+          "day": 6,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 0.5,
+            "weight": 0.5,
+            "alpha": 0.1,
+            "score": 0.74296,
+            "confidence": 1.0,
+            "distinct_days": 6,
+            "status": "secure"
+          }
+        }
+      ]
+    },
+    {
+      "name": "B: one-day cramming",
+      "evidence": [
+        {
+          "n": 1,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 1,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 1.0,
+            "score": 1.0,
+            "confidence": 0.2,
+            "distinct_days": 1,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 2,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 1,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.5,
+            "score": 1.0,
+            "confidence": 0.4,
+            "distinct_days": 1,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 3,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 1,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.333333333333,
+            "score": 1.0,
+            "confidence": 0.6,
+            "distinct_days": 1,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 4,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 1,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.25,
+            "score": 1.0,
+            "confidence": 0.8,
+            "distinct_days": 1,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 5,
+          "source": "activity",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 1,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.2,
+            "score": 1.0,
+            "confidence": 1.0,
+            "distinct_days": 1,
+            "status": "developing"
+          }
+        }
+      ]
+    },
+    {
+      "name": "C: parent ratings",
+      "evidence": [
+        {
+          "n": 1,
+          "source": "baseline",
+          "value": 0.3,
+          "independence": "independent",
+          "day": 1,
+          "expected": {
+            "base_weight": 0.8,
+            "factor": 1.0,
+            "weight": 0.8,
+            "alpha": 1.0,
+            "score": 0.3,
+            "confidence": 0.2,
+            "distinct_days": 1,
+            "status": "emerging"
+          }
+        },
+        {
+          "n": 2,
+          "source": "observation",
+          "value": 0.6,
+          "independence": "independent",
+          "day": 5,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.5,
+            "score": 0.45,
+            "confidence": 0.4,
+            "distinct_days": 2,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 3,
+          "source": "observation",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 9,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.333333333333,
+            "score": 0.633333333333,
+            "confidence": 0.6,
+            "distinct_days": 3,
+            "status": "developing"
+          }
+        },
+        {
+          "n": 4,
+          "source": "observation",
+          "value": 1.0,
+          "independence": "independent",
+          "day": 12,
+          "expected": {
+            "base_weight": 1.0,
+            "factor": 1.0,
+            "weight": 1.0,
+            "alpha": 0.25,
+            "score": 0.725,
+            "confidence": 0.8,
+            "distinct_days": 4,
+            "status": "secure"
+          }
+        }
+      ]
+    }
+  ]
+}
