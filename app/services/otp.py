@@ -2,6 +2,11 @@
 
 Providers: console (writes the code to the application log: dev/test/nonprod only, refused in prod by config),
 webhook (POSTs {"to", "message"} to your SMS gateway over HTTPS), disabled (always fails).
+
+OTP_STATIC_TEST_CODE (dev/nonprod only, never prod): when set, every generated code is this fixed value
+instead of a random one, so a group of testers can all be told the same code out of band rather than each
+needing real SMS delivery. Delivery (console/webhook/disabled) still runs as configured; only generation
+is affected.
 """
 
 from __future__ import annotations
@@ -22,6 +27,9 @@ log = logging.getLogger("app.otp")
 
 
 def new_code() -> str:
+    s = get_settings()
+    if s.otp_static_test_code:
+        return s.otp_static_test_code
     return f"{secrets.randbelow(10**6):06d}"
 
 

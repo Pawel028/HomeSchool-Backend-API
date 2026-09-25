@@ -64,6 +64,10 @@ class Settings(BaseSettings):
     otp_ttl_minutes: int = 10
     otp_max_attempts: int = 5
     expose_dev_otp: bool = False  # returns the code in the API response: local development only
+    otp_static_test_code: str | None = None  # TESTING ONLY: forces every generated OTP to this fixed
+    # value, so a whole group of testers can share one known code instead of each needing real delivery.
+    # Never allowed when APP_ENV=prod (guarded below): would let anyone verify as guardian for any phone
+    # number without ever receiving anything.
     declaration_notice_version: str = "2026-09-draft"
 
     # Features and client policy
@@ -110,6 +114,8 @@ class Settings(BaseSettings):
                 raise ValueError("DB_SSLMODE must be require or stronger in nonprod/prod")
             if self.app_env == "prod" and self.otp_provider != "webhook":
                 raise ValueError("OTP_PROVIDER must be webhook in prod (the console provider writes codes to the log)")
+            if self.app_env == "prod" and self.otp_static_test_code:
+                raise ValueError("OTP_STATIC_TEST_CODE must never be set in prod")
             if self.otp_provider == "webhook" and not (self.otp_webhook_url or "").startswith("https://"):
                 raise ValueError("OTP_WEBHOOK_URL must be an https URL when OTP_PROVIDER=webhook")
         return self
