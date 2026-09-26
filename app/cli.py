@@ -62,7 +62,7 @@ def ensure_app_role(role: str, password: str) -> None:
         exists = conn.execute("select 1 from pg_roles where rolname = %s", (role,)).fetchone()
         verb = "ALTER" if exists else "CREATE"
         conn.execute(
-            sql.SQL(f"{verb} ROLE {{}} LOGIN PASSWORD {{}} NOSUPERUSER NOBYPASSRLS NOCREATEDB NOCREATEROLE").format(
+            sql.SQL(f"{verb} ROLE {{}} LOGIN PASSWORD {{}} NOBYPASSRLS NOCREATEDB NOCREATEROLE").format(
                 ident, sql.Literal(password)
             )
         )
